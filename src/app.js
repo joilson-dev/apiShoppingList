@@ -119,7 +119,7 @@ app.get('/items', (req, res) => {
 app.get('/items/:id', (req, res) => {
     const { id } = req.params;
     const idNumber = parseInt(id, 10);
-    if (isNaN(idNumber) || idNumber < 1 || idNumber > items.length) {
+    if (isNaN(idNumber) || idNumber < 1) {
         return res.status(400).send('ID inválido!');
     }
 
