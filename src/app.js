@@ -1,11 +1,65 @@
-import express from 'express'
+import express, { query } from 'express'
 import cors from 'cors'
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const items = []
+const items = [{
+    name: "Uva",
+    quantity: 2,
+    type: "fruta"
+},
+{
+    name: "Maçã",
+    quantity: 5,
+    type: "fruta"
+},
+{
+    name: "Banana",
+    quantity: 6,
+    type: "fruta"
+},
+{
+    name: "Pão",
+    quantity: 1,
+    type: "padaria"
+},
+{
+    name: "Bolo",
+    quantity: 1,
+    type: "padaria"
+},
+{
+    name: "Leite",
+    quantity: 3,
+    type: "laticínios"
+},
+{
+    name: "Queijo",
+    quantity: 1,
+    type: "laticínios"
+},
+{
+    name: "Ovo",
+    quantity: 12,
+    type: "proteína"
+},
+{
+    name: "Frango",
+    quantity: 1,
+    type: "proteína"
+},
+{
+    name: "Arroz",
+    quantity: 1,
+    type: "grãos"
+},
+{
+    name: "Feijão",
+    quantity: 1,
+    type: "grãos"
+}]
 
 app.post('/items', (req, res) => {
     const { name, quantity, type } = req.body
@@ -36,6 +90,17 @@ app.post('/items', (req, res) => {
     return res.status(201).send(newItems)
 
 })
+
+app.get('/items', (req, res) => {
+    const { type } = req.query;
+
+    if (type) {
+        const filter = items.filter((item) => item.type.toLowerCase() === type.toLowerCase());
+        return res.status(200).send(filter);
+    }
+
+    return res.status(200).send(items);
+});
 
 app.listen(5000, () => {
     console.log('Rodando na porta 5000');
