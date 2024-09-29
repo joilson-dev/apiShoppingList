@@ -1,0 +1,21 @@
+{
+  "name": "apishoppinglist",
+  "version": "1.0.0",
+  "description": "API REST para gerenciar uma lista de compras, desenvolvida com Node.js e Express, permitindo adicionar, consultar e filtrar itens. Dados são persistidos em memória.",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

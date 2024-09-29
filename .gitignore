@@ -1,0 +1,14 @@
+plaintext
+Copiar código
+# Ignorar arquivos de log
+*.log
+
+# Ignorar diretórios de dependências
+node_modules/
+vendor/
+
+# Ignorar arquivos de ambiente
+.env
+
+# Ignorar arquivos temporários
+*.tmp
